@@ -4,6 +4,10 @@ plugins {
     kotlin("multiplatform")
 }
 
+repositories {
+    mavenCentral()
+}
+
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
