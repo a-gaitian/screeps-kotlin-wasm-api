@@ -1,12 +1,18 @@
 package util.js
 
-external interface JsEntry<T: JsAny> : JsMap<T>
+external class JsEntry<T: JsAny> : JsAny {
+    operator fun <T: JsAny> get(key: JsNumber): T?
+    operator fun <T: JsAny> get(key: Int): T?
+
+    operator fun <T: JsAny> set(key: JsNumber, value: T)
+    operator fun <T: JsAny> set(key: Int, value: T)
+}
 
 operator fun JsEntry<*>.component1(): JsString =
-    get(0.toJsNumber())!!
+    get(0)!!
 
 operator fun <T: JsAny> JsEntry<T>.component2(): T =
-    get(1.toJsNumber())!!
+    get(1)!!
 
 val JsEntry<*>.key: JsString
     get() = component1()

@@ -1,7 +1,7 @@
 package util.js
 
 @JsName("Object")
-external object Object : JsAny {
+external object JsObject : JsAny {
 
     fun keys(jsObject: JsAny): JsArray<JsString>
 
